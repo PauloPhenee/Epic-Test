@@ -7,7 +7,6 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "CentralizedScrollBox.generated.h"
 
-// Delegate for when scroll value changes
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnScrollOffsetChanged, float, CurrentOffset);
 
 
@@ -34,11 +33,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Scroll Animation")
 	TEnumAsByte<EEasingFunc::Type> ScrollEasingType = EEasingFunc::Linear;
 
-	// Event fired when scroll offset changes programmatically
 	UPROPERTY(BlueprintAssignable, Category = "User Interface|ScrollBox")
 	FOnScrollOffsetChanged OnScrollOffsetChanged;
 
-	// Smoothly scrolls to center a specific element in the scroll box
 	UFUNCTION(BlueprintCallable, Category = "User Interface|ScrollBox")
 	void ScrollToElementCentered(int32 ElementIndex);
 
